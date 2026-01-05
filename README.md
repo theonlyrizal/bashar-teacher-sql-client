@@ -88,8 +88,8 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/bashar-teacher-client.git
-   cd bashar-teacher-client
+   git clone https://github.com/theonlyrizal/bashar-teacher-sql-client.git
+   cd bashar-teacher-sql-client
    ```
 
 2. **Install dependencies:**
