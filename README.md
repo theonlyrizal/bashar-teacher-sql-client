@@ -6,11 +6,11 @@
 
 Bashar Teacher is a comprehensive tuition management platform designed to connect qualified tutors with students across Bangladesh. **This is the SQL-compatible client**, configured to work with the PostgreSQL/Prisma backend (`bashar-teacher-sql-server`).
 
-![Bashar Teacher Homepage](./public/screenshot.png)
+
 
 ## 🌐 Live Project
 
-**Live Link:** [https://bashar-teacher.vercel.app](https://bashar-teacher.vercel.app)
+**Live Link:** ---
 
 ## 🚀 Core Features
 
