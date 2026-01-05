@@ -6,11 +6,11 @@
 
 Bashar Teacher is a comprehensive tuition management platform designed to connect qualified tutors with students across Bangladesh. **This is the SQL-compatible client**, configured to work with the PostgreSQL/Prisma backend (`bashar-teacher-sql-server`).
 
-![Bashar Teacher Homepage](./public/screenshot.png)
+
 
 ## 🌐 Live Project
 
-**Live Link:** [https://bashar-teacher.vercel.app](https://bashar-teacher.vercel.app)
+**Live Link:** ---
 
 ## 🚀 Core Features
 
@@ -88,8 +88,8 @@ To run this project locally, follow these steps:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/bashar-teacher-client.git
-   cd bashar-teacher-client
+   git clone https://github.com/theonlyrizal/bashar-teacher-sql-client.git
+   cd bashar-teacher-sql-client
    ```
 
 2. **Install dependencies:**
