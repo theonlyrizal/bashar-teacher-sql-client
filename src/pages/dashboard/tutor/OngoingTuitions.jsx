@@ -60,7 +60,7 @@ const OngoingTuitions = () => {
 
             return (
               <motion.div
-                key={application._id}
+                key={application.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -144,7 +144,7 @@ const OngoingTuitions = () => {
                   )}
 
                   <div className="card-actions justify-end mt-4">
-                    <Link to={`/tuitions/${tuition?._id}`} className="btn btn-outline btn-sm">
+                    <Link to={`/tuitions/${tuition?.id}`} className="btn btn-outline btn-sm">
                       View Full Details
                     </Link>
                   </div>

@@ -97,7 +97,7 @@ const TuitionManagement = () => {
         <div className="grid grid-cols-1 gap-6">
           {filteredTuitions.map((tuition, index) => (
             <motion.div
-              key={tuition._id}
+              key={tuition.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -168,7 +168,7 @@ const TuitionManagement = () => {
 
                 <div className="card-actions justify-end mt-4">
                   <Link
-                    to={`/tuitions/${tuition._id}`}
+                    to={`/tuitions/${tuition.id}`}
                     className="btn btn-ghost btn-sm"
                   >
                     <FaEye className="mr-1" /> View Details
@@ -176,13 +176,13 @@ const TuitionManagement = () => {
                   {tuition.status === 'Pending' && (
                     <>
                       <button
-                        onClick={() => handleReject(tuition._id)}
+                        onClick={() => handleReject(tuition.id)}
                         className="btn btn-error btn-sm"
                       >
                         <FaTimesCircle className="mr-1" /> Reject
                       </button>
                       <button
-                        onClick={() => handleApprove(tuition._id)}
+                        onClick={() => handleApprove(tuition.id)}
                         className="btn btn-success btn-sm"
                       >
                         <FaCheckCircle className="mr-1" /> Approve

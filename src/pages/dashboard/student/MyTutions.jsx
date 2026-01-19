@@ -18,7 +18,7 @@ const MyTuitions = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const result = await updateTuition(editingTuition._id, editingTuition);
+    const result = await updateTuition(editingTuition.id, editingTuition);
     if (result.success) {
       setShowEditModal(false);
     }
@@ -67,7 +67,7 @@ const MyTuitions = () => {
         <div className="grid grid-cols-1 gap-6">
           {tuitions.map((tuition, index) => (
             <motion.div
-              key={tuition._id}
+              key={tuition.id}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -114,7 +114,7 @@ const MyTuitions = () => {
 
                 <div className="card-actions justify-end mt-4">
                   <Link
-                    to={`/dashboard/student/applied-tutors/${tuition._id}`}
+                    to={`/dashboard/student/applied-tutors/${tuition.id}`}
                     className="btn btn-sm btn-outline"
                   >
                     <FaEye className="mr-1" /> View Applications
@@ -127,7 +127,7 @@ const MyTuitions = () => {
                     <FaEdit className="mr-1" /> Edit
                   </button>
                   <button
-                    onClick={() => handleDelete(tuition._id)}
+                    onClick={() => handleDelete(tuition.id)}
                     className="btn btn-sm btn-error"
                   >
                     <FaTrash className="mr-1" /> Delete

@@ -29,7 +29,7 @@ const AppliedTutors = () => {
       ]);
 
       // Handle raw response for tuition (object directly)
-      if (tuitionRes.data && tuitionRes.data._id) {
+      if (tuitionRes.data && tuitionRes.data.id) {
         setTuition(tuitionRes.data);
       } else if (tuitionRes.data.success && tuitionRes.data.tuition) {
         // Fallback if API changes to standard envelope
@@ -70,7 +70,7 @@ const AppliedTutors = () => {
         // Fetch applications for each tuition
         for (const tuition of myTuitions) {
           try {
-            const appsRes = await api.get(`/api/applications/tuition/${tuition._id}`);
+            const appsRes = await api.get(`/api/applications/tuition/${tuition.id}`);
             // Handle array response
             let apps = [];
             if (Array.isArray(appsRes.data)) {
@@ -86,7 +86,7 @@ const AppliedTutors = () => {
               });
             }
           } catch (err) {
-            console.error(`Failed to fetch apps for tuition ${tuition._id}`, err);
+            console.error(`Failed to fetch apps for tuition ${tuition.id}`, err);
           }
         }
 
@@ -104,15 +104,15 @@ const AppliedTutors = () => {
   const [processingPaymentId, setProcessingPaymentId] = useState(null);
 
   const handleAccept = async (application) => {
-    if (!application || !application._id) return;
+    if (!application || !application.id) return;
 
-    setProcessingPaymentId(application._id);
+    setProcessingPaymentId(application.id);
     const toastId = toast.loading('Initializing payment...');
 
     try {
       // Call backend to create Stripe session
       const response = await api.post('/api/payments/create-checkout-session', {
-        applicationId: application._id,
+        applicationId: application.id,
         salary: application.expectedSalary,
       });
 
@@ -194,13 +194,13 @@ const AppliedTutors = () => {
         <div className="grid grid-cols-1 gap-6">
           {applications.map((app, index) => (
             <ApplicationCard
-              key={app._id}
+              key={app.id}
               application={app}
               index={index}
               onAccept={handleAccept}
               onReject={handleReject}
               getStatusBadge={getStatusBadge}
-              isProcessing={processingPaymentId === app._id}
+              isProcessing={processingPaymentId === app.id}
             />
           ))}
         </div>
@@ -214,13 +214,13 @@ const AppliedTutors = () => {
               <div className="grid grid-cols-1 gap-4">
                 {group.applications.map((app, index) => (
                   <ApplicationCard
-                    key={app._id}
+                    key={app.id}
                     application={app}
                     index={index}
                     onAccept={handleAccept}
                     onReject={handleReject}
                     getStatusBadge={getStatusBadge}
-                    isProcessing={processingPaymentId === app._id}
+                    isProcessing={processingPaymentId === app.id}
                   />
                 ))}
               </div>
@@ -301,7 +301,7 @@ const ApplicationCard = ({
           {application.status === 'Pending' && (
             <div className="card-actions justify-end mt-4">
               <button
-                onClick={() => onReject(application._id)}
+                onClick={() => onReject(application.id)}
                 className="btn btn-error btn-sm"
                 disabled={isProcessing}
               >

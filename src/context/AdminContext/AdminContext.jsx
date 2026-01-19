@@ -31,7 +31,7 @@ const AdminProvider = ({ children }) => {
   const updateUserRole = async (userId, newRole) => {
     try {
       const response = await api.patch(`/api/admin/users/${userId}/role`, { role: newRole });
-      if (response.data.success || response.data.modifiedCount > 0) {
+      if (response.data.success || response.data.id) {
         toast.success('User role updated successfully');
         fetchUsers();
         return { success: true };
@@ -48,7 +48,7 @@ const AdminProvider = ({ children }) => {
   const deleteUser = async (id) => {
     try {
       const response = await api.delete(`/api/admin/users/${id}`);
-      if (response.data.deletedCount > 0) {
+      if (response.data.success || response.data.ok) {
         toast.success('User deleted successfully');
         fetchUsers(); // Refresh list
         return { success: true };
@@ -113,7 +113,7 @@ const AdminProvider = ({ children }) => {
   const updateTuitionStatus = async (id, status) => {
     try {
       const response = await api.patch(`/api/admin/tuitions/${id}/status`, { status });
-      if (response.data.success || response.data.modifiedCount > 0) {
+      if (response.data.success || response.data.id) {
         toast.success(`Tuition ${status} successfully`);
         fetchAdminTuitions(); // Refresh list
         return { success: true };

@@ -49,7 +49,7 @@ const Tutors = () => {
                     {filteredTutors.length > 0 ? (
                         filteredTutors.map((tutor, index) => (
                             <motion.div
-                                key={tutor._id}
+                                key={tutor.id}
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ delay: index * 0.05 }}
@@ -74,7 +74,7 @@ const Tutors = () => {
                                     </div>
 
                                     <div className="card-actions mt-6 w-full">
-                                        <Link to={`/tutors/${tutor._id}`} className="btn btn-primary w-full">
+                                        <Link to={`/tutors/${tutor.id}`} className="btn btn-primary w-full">
                                             View Profile
                                         </Link>
                                     </div>

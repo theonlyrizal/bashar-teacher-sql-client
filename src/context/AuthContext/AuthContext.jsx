@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
       });
 
       // Register in backend
-      const response = await api.post('/auth/register', {
+      const response = await api.post('/api/auth/register', {
         name,
         email,
         password,
@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
         password,
       });
 
-      if (response.data.success) {
+      if (response.data.success || response.data.token) {
         // Save token and user
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('user', JSON.stringify(response.data.user));
@@ -95,7 +95,7 @@ const AuthProvider = ({ children }) => {
       const token = await userCredential.user.getIdToken();
 
       // Send to backend
-      const response = await api.post('/auth/google', {
+      const response = await api.post('/api/auth/google', {
         token,
       });
 
@@ -117,7 +117,7 @@ const AuthProvider = ({ children }) => {
   // Admin Login (Token Only - Bypasses Firebase)
   const loginAsAdmin = async (adminToken) => {
     try {
-      const response = await api.post('/auth/login', {
+      const response = await api.post('/api/auth/login', {
         adminToken, // Send only token
       });
 

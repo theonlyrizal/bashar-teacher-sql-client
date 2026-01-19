@@ -26,7 +26,7 @@ const MyApplications = () => {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const result = await updateApplication(editingApp._id, {
+    const result = await updateApplication(editingApp.id, {
         qualifications: editingApp.qualifications,
         experience: editingApp.experience,
         expectedSalary: editingApp.expectedSalary,
@@ -81,7 +81,7 @@ const MyApplications = () => {
         <div className="grid grid-cols-1 gap-6">
           {applications.map((app, index) => (
             <motion.div
-              key={app._id}
+              key={app.id}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
@@ -137,7 +137,7 @@ const MyApplications = () => {
 
                 <div className="card-actions justify-end mt-4">
                   <Link
-                    to={`/tuitions/${app.tuition?._id}`}
+                    to={`/tuitions/${app.tuition?.id}`}
                     className="btn btn-sm btn-ghost"
                   >
                     <FaEye className="mr-1" /> View Tuition
@@ -151,7 +151,7 @@ const MyApplications = () => {
                         <FaEdit className="mr-1" /> Edit
                       </button>
                       <button
-                        onClick={() => handleDelete(app._id, app.status)}
+                        onClick={() => handleDelete(app.id, app.status)}
                         className="btn btn-sm btn-error"
                       >
                         <FaTrash className="mr-1" /> Delete

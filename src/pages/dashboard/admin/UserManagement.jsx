@@ -98,7 +98,7 @@ const UserManagement = () => {
               <tbody>
                 {filteredUsers.map((user, index) => (
                   <motion.tr
-                    key={user._id}
+                    key={user.id}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.05 }}
@@ -143,13 +143,13 @@ const UserManagement = () => {
                           className="dropdown-content z-1 menu p-2 shadow bg-base-100 rounded-box w-32"
                         >
                           <li>
-                            <a onClick={() => handleRoleChange(user._id, 'Student')}>Student</a>
+                            <a onClick={() => handleRoleChange(user.id, 'Student')}>Student</a>
                           </li>
                           <li>
-                            <a onClick={() => handleRoleChange(user._id, 'Tutor')}>Tutor</a>
+                            <a onClick={() => handleRoleChange(user.id, 'Tutor')}>Tutor</a>
                           </li>
                           <li>
-                            <a onClick={() => handleRoleChange(user._id, 'Admin')}>Admin</a>
+                            <a onClick={() => handleRoleChange(user.id, 'Admin')}>Admin</a>
                           </li>
                         </ul>
                       </div>
@@ -163,7 +163,7 @@ const UserManagement = () => {
                     <td>
                       <div className="flex gap-2">
                         <button
-                          onClick={() => handleDeleteUser(user._id)}
+                          onClick={() => handleDeleteUser(user.id)}
                           className="btn btn-error btn-xs"
                         >
                           <FaTrash />

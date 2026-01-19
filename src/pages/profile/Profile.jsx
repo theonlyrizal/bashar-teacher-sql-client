@@ -38,7 +38,7 @@ const Profile = () => {
     setLoading(true);
     try {
       // Filter out sensitive or unchangeable fields
-      const { _id, email, role, password, ...updateData } = formData;
+      const { id, email, role, password, ...updateData } = formData;
       
       await updateUserProfile(updateData);
       

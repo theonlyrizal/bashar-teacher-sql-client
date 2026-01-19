@@ -223,7 +223,7 @@ const TuitionsListing = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
               {tuitions.map((tuition, index) => (
                 <motion.div
-                  key={tuition._id}
+                  key={tuition.id}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.05 }}
@@ -264,15 +264,15 @@ const TuitionsListing = () => {
                         <div className="avatar">
                           <div className="w-8 rounded-full">
                             <img 
-                              src={tuition.studentId?.photoURL || 'https://i.ibb.co/4pDNDk1/avatar.png'} 
-                              alt={tuition.studentId?.name}
+                              src={tuition.student?.photoURL || 'https://i.ibb.co/4pDNDk1/avatar.png'} 
+                              alt={tuition.student?.name}
                             />
                           </div>
                         </div>
-                        <span className="text-xs text-base-content/70">{tuition.studentId?.name}</span>
+                        <span className="text-xs text-base-content/70">{tuition.student?.name}</span>
                       </div>
                       <Link 
-                        to={`/tuitions/${tuition._id}`} 
+                        to={`/tuitions/${tuition.id}`} 
                         className="btn btn-primary btn-sm"
                       >
                         View Details

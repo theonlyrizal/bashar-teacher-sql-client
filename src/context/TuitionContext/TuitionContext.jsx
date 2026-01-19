@@ -70,7 +70,7 @@ const TuitionProvider = ({ children }) => {
   const postTuition = async (tuitionData) => {
     try {
       const response = await api.post('/api/tuitions', tuitionData);
-      if (response.data.insertedId) {
+      if (response.data.id) {
         toast.success('Tuition posted successfully!');
         // Refresh list
         fetchMyTuitions();
@@ -88,8 +88,8 @@ const TuitionProvider = ({ children }) => {
   const updateTuition = async (id, updates) => {
     try {
       const response = await api.patch(`/api/tuitions/${id}`, updates);
-      // Note: Server might return result object, usually check modifiedCount or acknowledged
-      if (response.data.modifiedCount > 0 || response.data.acknowledged) {
+      // SQL update returns the object with id, or check for id existence
+      if (response.data.id) {
         toast.success('Tuition updated successfully');
         fetchMyTuitions();
         return { success: true };
@@ -106,7 +106,7 @@ const TuitionProvider = ({ children }) => {
   const deleteTuition = async (id) => {
     try {
       const response = await api.delete(`/api/tuitions/${id}`);
-      if (response.data.deletedCount > 0 || response.data.success) {
+      if (response.data.ok) {
         toast.success('Tuition deleted successfully');
         fetchMyTuitions();
         return { success: true };

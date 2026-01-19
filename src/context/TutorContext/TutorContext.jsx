@@ -83,7 +83,7 @@ const TutorProvider = ({ children }) => {
   const updateApplication = async (id, updates) => {
     try {
       const response = await api.patch(`/api/applications/${id}/update`, updates);
-      if (response.data.success || response.data.modifiedCount > 0) {
+      if (response.data.success || response.data.id) {
         toast.success('Application updated successfully');
         fetchMyApplications();
         return { success: true };
@@ -100,7 +100,7 @@ const TutorProvider = ({ children }) => {
   const deleteApplication = async (id) => {
     try {
       const response = await api.delete(`/api/applications/${id}`);
-      if (response.data.success || response.data.deletedCount > 0) {
+      if (response.data.success || response.data.ok) {
         toast.success('Application deleted successfully');
         fetchMyApplications();
         return { success: true };
@@ -116,7 +116,7 @@ const TutorProvider = ({ children }) => {
   const applyForTuition = async (applicationData) => {
     try {
       const response = await api.post('/api/applications', applicationData);
-      if (response.data.success || response.data.insertedId) {
+      if (response.data.success || response.data.id) {
         // toast.success('Application submitted successfully!'); // Let component handle success toast or do it here
         // fetchMyApplications(); // Optional, if we want to update the list immediately
         return { success: true };

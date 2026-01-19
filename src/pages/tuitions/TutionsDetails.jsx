@@ -170,17 +170,17 @@ const TuitionDetails = () => {
               <div className="avatar">
                 <div className="w-16 rounded-full">
                   <img
-                    src={tuition.studentId?.photoURL || 'https://i.ibb.co/4pDNDk1/avatar.png'}
-                    alt={tuition.studentId?.name}
+                    src={tuition.student?.photoURL || 'https://i.ibb.co/4pDNDk1/avatar.png'}
+                    alt={tuition.student?.name}
                   />
                 </div>
               </div>
               <div>
-                <div className="font-semibold text-lg">{tuition.studentId?.name}</div>
-                <div className="text-sm text-base-content/70">{tuition.studentId?.email}</div>
-                {tuition.studentId?.phone && (
+                <div className="font-semibold text-lg">{tuition.student?.name}</div>
+                <div className="text-sm text-base-content/70">{tuition.student?.email}</div>
+                {tuition.student?.phone && (
                   <div className="text-sm text-base-content/70 flex items-center gap-2 mt-1">
-                    <FaPhone /> {tuition.studentId.phone}
+                    <FaPhone /> {tuition.student.phone}
                   </div>
                 )}
               </div>

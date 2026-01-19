@@ -177,7 +177,7 @@ const Analytics = () => {
                 <tbody>
                   {adminPayments.slice(0, 10).map((payment, index) => (
                     <motion.tr
-                      key={payment._id}
+                      key={payment.id}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}

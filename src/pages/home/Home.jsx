@@ -152,7 +152,7 @@ const Home = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {latestTuitions.slice(0, 6).map((tuition, index) => (
                   <motion.div
-                    key={tuition._id}
+                    key={tuition.id}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -176,7 +176,7 @@ const Home = () => {
                         </p>
                       </div>
                       <div className="card-actions justify-end mt-4">
-                        <Link to={`/tuitions/${tuition._id}`} className="btn btn-primary btn-sm">
+                        <Link to={`/tuitions/${tuition.id}`} className="btn btn-primary btn-sm">
                           View Details
                         </Link>
                       </div>
@@ -223,7 +223,7 @@ const Home = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {latestTutors.slice(0, 6).map((tutor, index) => (
                   <motion.div
-                    key={tutor._id}
+                    key={tutor.id}
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
@@ -251,7 +251,7 @@ const Home = () => {
                         </div>
                       )}
                       <div className="card-actions mt-4">
-                        <Link to={`/tutors/${tutor._id}`} className="btn btn-primary btn-sm">
+                        <Link to={`/tutors/${tutor.id}`} className="btn btn-primary btn-sm">
                           View Profile
                         </Link>
                       </div>
